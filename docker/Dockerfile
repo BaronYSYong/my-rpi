@@ -6,4 +6,4 @@ RUN READTHEDOCS=True \
 ENV RESOLUTION=800x600 \
     FRAMERATE=24
 
-ENTRYPOINT ["/usr/local/bin/python"]
+CMD ["/bin/bash"]
