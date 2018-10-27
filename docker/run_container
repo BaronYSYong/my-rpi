@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+CONTAINER_NAME=${1}
+IMAGE_NAME=${2}
+
+docker run -it \
+    --volume="${HOME}/workspace:/workspace:rw" \
+    --net=host -v /dev:/dev \
+    --privileged=true \
+    --name=${CONTAINER_NAME} \
+    ${IMAGE_NAME}
