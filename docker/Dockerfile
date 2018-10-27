@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi-python:3
+FROM resin/raspberry-pi-python:latest
 
 RUN READTHEDOCS=True \
     pip install picamera
@@ -6,3 +6,4 @@ RUN READTHEDOCS=True \
 ENV RESOLUTION=800x600 \
     FRAMERATE=24
 
+ENTRYPOINT ["/usr/local/bin/python"]
