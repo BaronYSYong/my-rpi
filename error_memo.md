@@ -20,4 +20,5 @@ ImportError: No module named catkin.environment_cache
 try :
 ```
 apt-get install python-catkin-tools
+./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DSETUPTOOLS_DEB_LAYOUT=OFF --install-space /opt/ros/kinetic -j2
 ```
