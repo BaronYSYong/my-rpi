@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+apt update
+apt install software-properties-common wget lsb-release
+apt install -y --force-yes dirmngr
+apt install build-essential checkinstall
+apt install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+cd /usr/src
+wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tgz
+tar xzf Python-2.7.14.tgz
+cd Python-2.7.14
+./configure --enable-optimizations --enable-unicode=ucs4
+make altinstall
+sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+apt update
+apt upgrade
+apt install -y --force-yes python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake 
+apt install -y --force-yes python-catkin-tools
+rosdep init
+rosdep update
+mkdir -p ~/ros_catkin_ws
+cd ~/ros_catkin_ws
+rosinstall_generator desktop --rosdistro kinetic --deps --wet-only --tar > kinetic-desktop-wet.rosinstall
+wstool init src kinetic-desktop-wet.rosinstall
+cd ~/ros_catkin_ws
+rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:jessie
+./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DSETUPTOOLS_DEB_LAYOUT=OFF --install-space /opt/ros/kinetic -j2
+echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
