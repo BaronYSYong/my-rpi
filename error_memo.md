@@ -27,3 +27,15 @@ pip install -U setuptools
 sudo apt-get update
 sudo apt-get install qt5-default pyqt5-dev pyqt5-dev-tools
 ```
+```
+# nm -D /usr/bin/python2.7 | grep FromUnicode
+001d21c0 T PyInt_FromUnicode
+001f1c28 T PyLong_FromUnicode
+00118514 T PyUnicodeUCS4_FromUnicode
+# which python
+/usr/local/bin/python
+# nm -D /usr/local/bin/python | grep FromUnicode
+00052774 T PyInt_FromUnicode
+00063c88 T PyLong_FromUnicode
+0009f828 T PyUnicodeUCS2_FromUnicode
+```
