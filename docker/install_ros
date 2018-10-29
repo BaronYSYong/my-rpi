@@ -24,6 +24,7 @@ rosinstall_generator desktop --rosdistro kinetic --deps --wet-only --tar > kinet
 wstool init src kinetic-desktop-wet.rosinstall
 cd ~/ros_catkin_ws
 rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:jessie
-./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DSETUPTOOLS_DEB_LAYOUT=OFF --install-space /opt/ros/kinetic -j2
+pip install -U setuptools
+./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DSETUPTOOLS_DEB_LAYOUT=OFF --install-space /opt/ros/kinetic -j4
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
