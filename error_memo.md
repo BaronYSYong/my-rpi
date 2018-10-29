@@ -49,4 +49,5 @@ cp /usr/share/cmake-3.0/Modules/FindEigen3.cmake /usr/share/cmake-3.6/Modules/
 try
 ```
 apt-get install libopencv-dev
+export OpenCV_DIR=/usr/share/OpenCV
 ```
