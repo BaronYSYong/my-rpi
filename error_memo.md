@@ -44,3 +44,9 @@ sudo apt-get install qt5-default pyqt5-dev pyqt5-dev-tools
 ```
 cp /usr/share/cmake-3.0/Modules/FindEigen3.cmake /usr/share/cmake-3.6/Modules/
 ```
+
+## Could not find a package configuration file provided by "OpenCV"
+try
+```
+apt-get install libopencv-dev
+```
