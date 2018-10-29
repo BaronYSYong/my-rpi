@@ -39,3 +39,8 @@ sudo apt-get install qt5-default pyqt5-dev pyqt5-dev-tools
 00063c88 T PyLong_FromUnicode
 0009f828 T PyUnicodeUCS2_FromUnicode
 ```
+
+## Could not find a package configuration file provided by "Eigen3"
+```
+cp /usr/share/cmake-3.0/Modules/FindEigen3.cmake /usr/share/cmake-3.6/Modules/
+```
