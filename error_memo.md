@@ -51,3 +51,9 @@ try
 apt-get install libopencv-dev
 export OpenCV_DIR=/usr/share/OpenCV
 ```
+
+## ImportError: No module named pkg_resources
+try
+```
+sudo apt-get install --reinstall python-pkg-resources
+```
